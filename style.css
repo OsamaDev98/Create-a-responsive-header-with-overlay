@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  color: #000;
+}
+html {
+  overflow-x: hidden;
+}
+header {
+  position: relative;
+  z-index: 1;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+header .container {
+  padding: 1.2rem 9%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .container .logo {
+  font-size: 1.5rem;
+}
+header .container nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+header .container nav a {
+  font-size: 1.2rem;
+  padding: 10px 1rem;
+}
+header .container nav a.active {
+  background: #eee;
+  transition: 0.5s;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+header .container :is(.bar-icon, .close-icon) {
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+header .container .overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+header .container .overlay.active {
+  display: flex;
+}
+
+/* Media query */
+@media (width <= 767px) {
+  header .container nav {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    padding-top: 6rem;
+    width: 300px;
+    height: 100vh;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+    transition: right 0.5s;
+    -webkit-transition: right 0.5s;
+    -moz-transition: right 0.5s;
+    -ms-transition: right 0.5s;
+    -o-transition: right 0.5s;
+  }
+  header .container nav.active {
+    right: 0;
+  }
+  header .container :is(.bar-icon, .close-icon) {
+    display: flex;
+  }
+  header .container .close-icon {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
+}
